@@ -6,10 +6,12 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "release": "http-server ./public -p 6667"
   },
   "dependencies": {
     "@mdi/font": "^7.4.47",
+    "http-server": "^14.1.1",
     "uuid": "^10.0.0",
     "vue": "^3.4.21",
     "vue-router": "^4.0.13"
