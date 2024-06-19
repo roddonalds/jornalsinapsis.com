@@ -1,7 +1,5 @@
 <template>
-  <v-app>
 
-    <v-main>
       <v-container class="mt-5">
         <v-row>
           <v-col cols="12">
@@ -27,8 +25,7 @@
           </v-col>
         </v-row>
       </v-container>
-    </v-main>
-  </v-app>
+
 </template>
 
 <script>
@@ -47,7 +44,9 @@ export default {
   .v-app-bar {
     background-color: #e0f7fa !important;
   }
+
   .v-btn {
     margin-right: 10px;
   }
+
 </style>

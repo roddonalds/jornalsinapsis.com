@@ -33,57 +33,58 @@
 </template>
 
 <script>
-export default {
-  name: 'Page3',
-  data() {
-    return {
-      links: Array(6).fill(''),
-      dialog: false,
-      currentVideoUrl: ''
-    };
-  },
-  methods: {
-    validateLink(index) {
-      const urlPattern = /^(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/.+$/;
-      if (this.links[index] && !urlPattern.test(this.links[index])) {
-        alert('Please enter a valid YouTube URL');
-        this.links[index] = '';
-      }
-    },
-    openModal(index) {
-        const videoId = this.extractVideoId(this.links[index]);
-          this.currentVideoUrl = `https://www.youtube.com/embed/${videoId}`;
-          this.dialog = true;
-    },
-    extractVideoId(url) {
-      const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
-      const match = url.match(regExp);
-      return match && match[2].length === 11 ? match[2] : null;
-    },
-    getThumbnailUrl(index) {
 
-      const largeThumbnails = [0, 1];
-      const smallThumbnails = [2, 3, 4, 5];
+  export default {
+    name: 'Page3',
+    data() {
+      return {
+        links: Array(6).fill(''),
+        dialog: false,
+        currentVideoUrl: ''
+      };
+    },
+    methods: {
+      validateLink(index) {
+        const urlPattern = /^(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/.+$/;
+        if (this.links[index] && !urlPattern.test(this.links[index])) {
+          alert('Please enter a valid YouTube URL');
+          this.links[index] = '';
+        }
+      },
+      openModal(index) {
+          const videoId = this.extractVideoId(this.links[index]);
+            this.currentVideoUrl = `https://www.youtube.com/embed/${videoId}`;
+            this.dialog = true;
+      },
+      extractVideoId(url) {
+        const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+        const match = url.match(regExp);
+        return match && match[2].length === 11 ? match[2] : null;
+      },
+      getThumbnailUrl(index) {
 
-      if (largeThumbnails.includes(index)) {
-        return `https://via.placeholder.com/320x180.png?text=Thumbnail+${index + 1}`;
-      } else if (smallThumbnails.includes(index)) {
-        return `https://via.placeholder.com/150x150.png?text=Thumbnail+${index + 1}`;
+        const largeThumbnails = [0, 1];
+        const smallThumbnails = [2, 3, 4, 5];
+
+        if (largeThumbnails.includes(index)) {
+          return `https://via.placeholder.com/320x180.png?text=Thumbnail+${index + 1}`;
+        } else if (smallThumbnails.includes(index)) {
+          return `https://via.placeholder.com/150x150.png?text=Thumbnail+${index + 1}`;
+        }
       }
     }
   }
-}
 
 </script>
 
 <style scoped>
 
-.v-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    cursor: pointer;
-  }
+  .v-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      cursor: pointer;
+}
 
 </style>
